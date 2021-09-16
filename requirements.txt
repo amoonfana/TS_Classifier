@@ -1,0 +1,7 @@
+torch==1.9.0
+scipy==1.6.2
+matplotlib==3.3.4
+pandas==1.2.4
+numpy==1.19.5
+networkx==2.5
+scikit_learn==0.24.2
