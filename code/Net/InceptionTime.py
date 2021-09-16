@@ -178,7 +178,7 @@ class SampaddingMaxPool1D(nn.Module):
         X = self.maxpool1d(X)
         return X
     
-class InceptionNet(nn.Module):
+class InceptionTime(nn.Module):
     def __init__(self, 
                  input_channle_size, 
                  nb_classes, 
@@ -189,7 +189,7 @@ class InceptionNet(nn.Module):
                  use_bottleneck=True, 
                  depth=6, 
                  kernel_size=41):
-        super(InceptionNet, self).__init__()
+        super(InceptionTime, self).__init__()
         
         self.input_channle_size = input_channle_size
         self.nb_classes = nb_classes

@@ -25,16 +25,20 @@ def fit(train_loader, val_loader, model, loss_fn, optimizer, scheduler, n_epochs
         if epoch % log_interval == 0:
             print('Epoch: {}/{}. Valid loss: {:.6f}\t Accuracy: {:.6f}'.format(epoch + 1, n_epochs, val_loss, val_acc))
 
-        # Early stopping
         if val_acc > best_val_acc:
-            es_cnt = 0
             best_val_acc = val_acc
             # torch.save(model, save_path)
-        else:
-            es_cnt += 1
+        
+        # # Early stopping
+        # if val_acc > best_val_acc:
+        #     es_cnt = 0
+        #     best_val_acc = val_acc
+        #     # torch.save(model, save_path)
+        # else:
+        #     es_cnt += 1
             
-            if es_cnt > patience:
-                break
+        #     if es_cnt > patience:
+        #         break
             
     return best_val_acc, time_train_total, time_val_avg/n_epochs            
         

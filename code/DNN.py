@@ -8,7 +8,7 @@ from DL.DataReader import TimeSeries
 from Net.ROCKET import ROCKET
 from Net.ConvNet1d import ConvNet1d
 from Net.ResNet1d import resnet1d18, resnet1d34, resnet1d50, resnet1d101, resnet1d152
-from Net.InceptionTime import InceptionNet
+from Net.InceptionTime import InceptionTime
 from DL.Loss import LinearCE, ModifiedCE, CenterLoss, SphereFace, NormFace, ArcMarginProduct, QAMFace
 # from DL.Loss import L2Regularization
 from DL.Trainer import fit
@@ -46,7 +46,7 @@ for _, row in dataset_info.iterrows():
         # model = ROCKET(1, TS_Train.ts_len, n_output//2) # n_output must be multiple of 2
         # model = ConvNet1d(n_output, TS_Train.ts_len)
         # model = resnet1d18(n_output)
-        model = InceptionNet(1, n_output)
+        model = InceptionTime(1, n_output)
         
         # loss_fn = QAMFace(n_output, n_classes)
         # loss_fn = ArcMarginProduct(n_output, n_classes)
