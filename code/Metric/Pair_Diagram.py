@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def pairwise_diagram(directory, csv1, csv2, col):
+def pairwise_diagram(directory, save_dir, csv1, csv2, col):
     result1 = pd.read_csv("{}/{}".format(directory, csv1))
     result2 = pd.read_csv("{}/{}".format(directory, csv2))
     
@@ -11,6 +11,7 @@ def pairwise_diagram(directory, csv1, csv2, col):
     e = max(col1.max(), col2.max())
     
     # Plot the diagram
+    plt.figure()
     # Labels on axes
     plt.xlabel(csv1)
     plt.ylabel(csv2)
@@ -27,6 +28,8 @@ def pairwise_diagram(directory, csv1, csv2, col):
     # points
     plt.scatter(col1, col2, color="r", marker=".", s =  100)
     # plt.show()
+    
+    plt.savefig(save_dir, bbox_inches='tight')
 
 if __name__ == "__main__":
-    pairwise_diagram("../../results", "rocket_ridgeCV_10000.csv", "DNN_linear_bs128.csv", "time_val")
+    pairwise_diagram("../../results", "../../diagrams/pair-diagram.png","rocket_ridgeCV_10000.csv", "reg_linear.csv", "acc_mean")

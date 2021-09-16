@@ -62,7 +62,7 @@ for _, row in dataset_info.iterrows():
         optimizer = torch.optim.Adam([{'params': model.parameters(), 'lr': learning_rate}, {'params': loss_fn.parameters(), 'lr': learning_rate}], weight_decay=0.01)
         # optimizer = torch.optim.SGD([{'params': model.parameters(), 'lr': learning_rate}, {'params': loss_fn.parameters(), 'lr': learning_rate}], momentum=0.8)
         
-        scheduler = lr_scheduler.StepLR(optimizer, 40, gamma=0.5, last_epoch=-1)
+        scheduler = lr_scheduler.StepLR(optimizer, n_epochs//6, gamma=0.5, last_epoch=-1)
         
         # Train the network
         accs[i], times_train[i], times_val[i] = fit(train_loader,
