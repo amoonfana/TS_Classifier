@@ -1,0 +1,20 @@
+1) Many datasets with missing data, denoted as NaN. Those datasets are:
+AllGestureWiimoteX
+AllGestureWiimoteY
+AllGestureWiimoteZ
+DodgerLoopDay
+DodgerLoopGame
+DodgerLoopWeekend
+GestureMidAirD1
+GestureMidAirD2
+GestureMidAirD3
+GesturePebbleZ1
+GesturePebbleZ2
+MelbournePedestrian
+PickupGestureWiimoteZ
+PLAID
+ShakeGestureWiimoteZ
+
+2) The names of "NonInvasiveFatalECGThorax1.tsv" and "NonInvasiveFatalECGThorax2.tsv" are wrong. They should be "NonInvasiveFetalECGThorax1.tsv" and "NonInvasiveFetalECGThorax2.tsv".
+
+3) The class labels are inconsistancy. Some datasets with classes 0~N, yet others with classes 1~N. "DistalPhalanxTW" even starts from 3. Moreover, some datasets with classes -1 and 1.
