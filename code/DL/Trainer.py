@@ -3,10 +3,10 @@ import torch
 import time
 
 def fit(train_loader, val_loader, model, loss_fn, optimizer, scheduler, n_epochs, patience, device, save_path, log_interval):
-    best_val_acc = 0
     time_train_total = 0
     time_val_avg = 0
-    es_cnt = 0
+    # best_val_acc = 0
+    # es_cnt = 0
     
     for epoch in range(0, n_epochs):
         # Train stage
@@ -24,10 +24,6 @@ def fit(train_loader, val_loader, model, loss_fn, optimizer, scheduler, n_epochs
         time_val_avg += (time.perf_counter() - time_val)
         if epoch % log_interval == 0:
             print('Epoch: {}/{}. Valid loss: {:.6f}\t Accuracy: {:.6f}'.format(epoch + 1, n_epochs, val_loss, val_acc))
-
-        if val_acc > best_val_acc:
-            best_val_acc = val_acc
-            # torch.save(model, save_path)
         
         # # Early stopping
         # if val_acc > best_val_acc:
@@ -40,7 +36,8 @@ def fit(train_loader, val_loader, model, loss_fn, optimizer, scheduler, n_epochs
         #     if es_cnt > patience:
         #         break
             
-    return best_val_acc, time_train_total, time_val_avg/n_epochs            
+    # return best_val_acc, time_train_total, time_val_avg/n_epochs
+    return val_acc, time_train_total, time_val_avg/n_epochs
         
 def train_epoch(train_loader, model, loss_fn, optimizer, device, log_interval):
     accum_loss = 0

@@ -17,7 +17,7 @@ dataset_info = pd.read_csv("ds_info.csv")
 results = pd.DataFrame(index = dataset_info["dataset"], columns = ["acc_mean", "acc_std", "acc_best", "time_train", "time_val"], data = 0)
 
 # Set up hyper-parameters
-n_runs = 5
+n_runs = 1
 n_output = 128
 learning_rate = 1e-3
 n_epochs = 256  #256 could be better
